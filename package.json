@@ -7,6 +7,32 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "vue-cli-service lint",
+      "git add"
+    ],
+    "*.vue": [
+      "vue-cli-service lint",
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.css": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.less": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "core-js": "^3.4.3",
     "vue": "^2.6.10",
@@ -21,8 +47,13 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "fs-css-order": "0.0.3",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
+    "stylelint": "^12.0.1",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-webpack-plugin": "^1.1.2",
     "vue-template-compiler": "^2.6.10"
   }
 }
