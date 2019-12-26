@@ -5,8 +5,8 @@ module.exports = {
     config.plugins.push(
       new StyleLintPlugin({
         context: 'src',
-        files: ['**/*.css', '**/*.scss', '**/*.vue', '**/*.sass', '**/*.less']
-        // fix: true
+        files: ['**/*.css', '**/*.scss', '**/*.vue', '**/*.sass', '**/*.less'],
+        fix: true
       })
     )
   }
