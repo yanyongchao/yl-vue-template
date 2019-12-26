@@ -30,7 +30,7 @@ module.exports = {
   }
 }
 ```
-2.3 新增stylelint忽略文件
+2.3 根目录新增stylelint忽略文件
 ```
 *.js
 *.png
@@ -38,7 +38,7 @@ module.exports = {
 *.ttf
 *.woff
 ```
-2.4新建vue.config.js
+2.4 根目录新建vue.config.js
 ```
 configureWebpack: config => {
   config.plugins.push(
@@ -55,30 +55,59 @@ npm install lint-staged -D
 
 修改package.json
 ```
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "*.js": [
-      "vue-cli-service lint",
-      "git add"
-    ],
-    "*.vue": [
-      "vue-cli-service lint",
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.css": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.less": [
-      "stylelint --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --fix",
-      "git add"
+"gitHooks": {
+  "pre-commit": "lint-staged"
+},
+"lint-staged": {
+  "*.js": [
+    "vue-cli-service lint",
+    "git add"
+  ],
+  "*.vue": [
+    "vue-cli-service lint",
+    "stylelint --fix",
+    "git add"
+  ],
+  "*.css": [
+    "stylelint --fix",
+    "git add"
+  ],
+  "*.less": [
+    "stylelint --fix",
+    "git add"
+  ],
+  "*.scss": [
+    "stylelint --fix",
+    "git add"
+  ]
+}
+```
+### gzip压缩
+npm install compression-webpack-plugin -D
+```
+plugins.push(
+  new CompressionWebpackPlugin({
+    filename: '[path].gz[query]',
+    algorithm: 'gzip',
+    test: productionGzipExtensions,
+    threshold: 10240,
+    minRatio: 0.8
+  })
+)
+```
+### 图片压缩
+```
+config.module
+  .rule('image')
+  .test(/\.(png|jpg|jpeg|gif|svg)(\?.*)?$/)
+  .use('img-loader')
+  .loader('img-loader')
+  .options({
+    plugins: [
+      require('imagemin-jpegtran')(),
+      require('imagemin-pngquant')({
+        quality: [0.75, 0.85]
+      })
     ]
-  }
+  })
 ```

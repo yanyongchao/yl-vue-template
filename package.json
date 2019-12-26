@@ -45,16 +45,21 @@
     "@vue/cli-service": "^4.1.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "babel-eslint": "^10.0.3",
+    "compression-webpack-plugin": "^3.0.1",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "fs-css-order": "0.0.3",
+    "imagemin": "^7.0.1",
+    "imagemin-jpegtran": "^6.0.0",
+    "imagemin-pngquant": "^8.0.0",
+    "img-loader": "^3.0.1",
+    "lint-staged": "^8.1.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^19.0.0",
     "stylelint-order": "^3.1.1",
     "stylelint-webpack-plugin": "^1.1.2",
-    "vue-template-compiler": "^2.6.10",
-    "lint-staged": "^8.1.0"
+    "vue-template-compiler": "^2.6.10"
   }
 }
