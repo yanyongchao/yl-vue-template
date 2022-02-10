@@ -54,7 +54,7 @@
     "imagemin-pngquant": "^8.0.0",
     "img-loader": "^3.0.1",
     "lint-staged": "^8.1.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.0",
     "stylelint": "^12.0.1",
     "stylelint-config-standard": "^19.0.0",
